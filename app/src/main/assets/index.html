@@ -12,47 +12,43 @@
 </head>
 
 <body>
-    <div id="form">
-        <label for="language">Pick language: </label>
-        <select id="language"></select>
-        <label for="input">Input: </label>
-        <input type="text" id="input">
-        <label for="code">Enter code: </label>
-        <textarea id="code" rows="20" cols="50"></textarea>
-        <div><button type="button" id="run">Run</button></div>
-        <pre id="output"></pre>
+<div id="form">
+    <label for="language">Pick language: </label>
+    <select id="language"></select><br>
+    <label for="input">Input: </label>
+    <input type="text" id="input"><br>
+    <label for="code">Enter code: </label>
+    <textarea id="code" cols="50"></textarea>
+    <div>
+        <button type="button" id="run">Run</button>
     </div>
+    <pre id="output"></pre>
+</div>
 
-    <script>
-        let select = document.getElementById("language");
-        let opt;
-        Object.keys(TIO.IDS).forEach(function (key) {
-            opt = document.createElement("option");
-            opt.innerHTML = key;
-            opt.value = TIO.IDS[key];
-            select.add(opt);
-            if (TIO.IDS[key] == "visual-basic-net-vbc") {
-                opt.selected = "selected";
-            }
-        });
-        document.getElementById("run").addEventListener("click", function () {
-            TIO.run(
-                document.getElementById('code').value,
-                document.getElementById('input').value,
-                document.getElementById('language').value
-            ).then(x => document.getElementById('output').innerText = x)
-        })
-    </script>
+<script>
+    let select = document.getElementById("language");
+    let opt;
+    Object.keys(TIO.IDS).forEach(function (key) {
+        opt = document.createElement("option");
+        opt.innerHTML = key;
+        opt.value = TIO.IDS[key];
+        select.add(opt);
+        if (TIO.IDS[key] == "visual-basic-net-vbc") {
+            opt.selected = "selected";
+        }
+    });
+    document.getElementById("run").addEventListener("click", function () {
+        TIO.run(
+            document.getElementById('code').value,
+            document.getElementById('input').value,
+            document.getElementById('language').value
+        ).then(x => document.getElementById('output').innerText = x)
+    })
+</script>
 </body>
 <style>
-    #form {
-        display: grid;
-        grid-template-columns: max-content max-content;
-        grid-gap: 10px;
-    }
-
-    #form label {
-        text-align: right;
+    input, textarea,select {
+        width: 100%;
     }
 </style>
 

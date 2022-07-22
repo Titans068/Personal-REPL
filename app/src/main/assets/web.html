@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div id="form">
+    <label for="code">HTML/CSS/JS: </label>
+    <textarea id="code" rows="20" cols="50"></textarea>
+    <div>
+        <button type="button" id="run">Run</button>
+    </div>
+    <br>
+    <label for="code">Result: </label>
+    <iframe id="result"></iframe>
+</div>
+</body>
+<script>
+    document.getElementById("run").addEventListener("click", function () {
+        const code = document.getElementById("code").value;
+        console.log(code)
+        const doc = document.getElementById("result").contentWindow.document;
+        doc.open();
+        doc.write(`<html><head><title></title></head><body>${code}</body></html>`);
+        doc.close();
+    });
+</script>
+<style>
+    iframe, textarea {
+        width: 100%;
+    }
+</style>
+</html>

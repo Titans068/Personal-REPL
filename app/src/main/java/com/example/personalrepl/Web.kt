@@ -11,23 +11,24 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class Web : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     lateinit var drawer: DrawerLayout
     lateinit var toggle: ActionBarDrawerToggle
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.setContentView(R.layout.activity_main)
+        this.setContentView(R.layout.activity_web)
         this.setNavigationViewListener()
 
-        drawer = this.findViewById(R.id.drawer)
+        drawer = this.findViewById(R.id.drawer2)
         toggle = ActionBarDrawerToggle(this, drawer, R.string.nav_open, R.string.nav_close)
         drawer.addDrawerListener(toggle)
         toggle.syncState()
         this.supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val asset: String = "file:///android_asset/index.html"
-        val webView: WebView = this.findViewById(R.id.webview)
-        webView.settings.javaScriptEnabled = true;
+        val asset: String = "file:///android_asset/web.html"
+        val webView: WebView = this.findViewById(R.id.webview2)
+        webView.settings.javaScriptEnabled = true
         webView.loadUrl(asset)
         webView.settings.allowFileAccess = true
         webView.settings.allowContentAccess = true
@@ -36,8 +37,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         webView.webChromeClient = WebChromeClient()
     }
 
-    fun setNavigationViewListener(){
-        val navigationView:NavigationView=findViewById(R.id.nav_view)
+    fun setNavigationViewListener() {
+        val navigationView: NavigationView = findViewById(R.id.web_nav_view)
         navigationView.setNavigationItemSelectedListener(this)
     }
 

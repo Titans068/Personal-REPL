@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Personal REPL</string>
+    <string name="programming">Programming</string>
+    <string name="web_editor">Web Editor</string>
+
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
 </resources>
